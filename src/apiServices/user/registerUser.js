@@ -1,4 +1,4 @@
-import { post } from "../utils/request";
+import { post } from "../../utils/request";
 
 /**
  * @param {*} data (Trong data gồm có fristName, lastName, email, password)
@@ -12,12 +12,12 @@ import { post } from "../utils/request";
 * Data gửi lên cần có cấu trúc như này
  */
 const registerUser = async (data) => {
-    try {
-        const res = await post("/user/register", data)
-        return res
-    } catch (error) {
-        console.log(error.message);
-    }
-}
+  try {
+    const res = await post("/user/register", data);
+    return res;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
-export default registerUser
+export default registerUser;

@@ -1,4 +1,4 @@
-import { post } from "../utils/request";
+import { post } from "../../utils/request";
 
 /**
  * @param {*} data (Trong data gồm có email, password)

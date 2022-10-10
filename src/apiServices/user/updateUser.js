@@ -1,4 +1,4 @@
-import { put } from "../utils/request";
+import { put } from "../../utils/request";
 
 /**
  * @param {*} idUser
