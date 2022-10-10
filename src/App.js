@@ -13,6 +13,12 @@ import deleteUser from "./apiServices/user/deleteUser";
 import addResearch from "./apiServices/research/addResearch";
 import updateResearch from "./apiServices/research/updateResearch";
 import updateImageResearch from "./apiServices/research/updateImageResearch";
+import getResearchById from "./apiServices/research/getResearchById";
+import addCommentResearch from "./apiServices/research/addComment";
+import getCommentResearch from "./apiServices/research/getCommentResearch";
+import increaseLikeResearchOrComment from "./apiServices/research/likeResearchOrComment";
+import getImageResearchbyId from "./apiServices/research/getImageResearchById";
+import getAllResearch from "./apiServices/research/getAllResearch";
 
 function App() {
   const [result, setResult] = useState();
@@ -24,13 +30,26 @@ function App() {
     const fromData = new FormData(formDataRef.current);
     // console.log(fromData.get("description"));
     // console.log(fromData.get("name"));
-    console.log(fromData.get("image"));
+    // console.log(fromData.get("image"));
     // console.log(fromData.get("scored"));
+    // console.log(fromData.get("comment"));
+
     // const idUser = "6332784bae083badbf26ba53";//admin
     const idUser = "63331bba38fdf8add0caa7eb"; //test
-    const idToken = "63423df784fa4da9330d4414";
-    const idReseach = "634374bc8798518b5f009f1f";
-    const res = await updateImageResearch(idReseach, fromData, idToken);
+    const idToken = "6344118e335c2eabff36f988";
+    const idReseach = "63345fd30a9f82181506cb77";
+    // fromData.append("idArticleOrExam", idReseach);
+    const newComment = {
+      idArticleOrExam: idReseach,
+      comment: "comment 11:25",
+    };
+
+    const like = {
+      type: "research",
+      idReaechOrComment: "63345fd30a9f82181506cb77",
+    };
+
+    const res = await getAllResearch(2);
     setResult(res);
   };
 
@@ -39,36 +58,33 @@ function App() {
     async function testApi() {
       const firstName = "update";
       const lastName = "last name update";
-      const email = "Test0910@gmail.com";
+      const email = "trinhminhnhatxt123@gmail.com";
       const codeSudentOrLecturers = "09102022";
       const password = "nhat17112002";
-      // const fromData = new FormData(formDataRef.current);
-      // fromData.append("firstName", firstName);
-      // fromData.append("lastName", lastName);
-      // fromData.append("email", email);
-      // fromData.append("codeSudentOrLecturers", codeSudentOrLecturers);
-      // fromData.append("pasword", password);
+
       const user = {
         email,
-        firstName,
-        lastName,
-        codeSudentOrLecturers,
+        password,
       };
       const idUser = "634051bac555f5944e6e9f6f";
-      const idToken = "63423df784fa4da9330d4414";
-      const res = await updateAvatarUser(idUser, user, idToken);
+      const idToken = "6344118e335c2eabff36f988";
+      const res = await loginUser(user);
       setResult(res);
     }
-    // testApi();
   }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <form ref={formDataRef}>
-          {/* <input name="name" type={"text"} /> */}
-          {/* <input name="description" type={"text"} /> */}
-          {/* <input name="scored" type={"number"} /> */}
+          <p>name</p>
+          <input name="name" type={"text"} />
+          <p>decs</p>
+          <input name="description" type={"text"} />
+          <p>scored</p>
+          <input name="scored" type={"number"} />
+          {/* <input name="comment" type={"text"} /> */}
+          {/* <input name="idArticleOrExam" type={"text"} /> */}
           <input type={"file"} name="image" multiple={true} />
           <button type="submit" onClick={(e) => submit(e)}>
             Cập nhâtj
