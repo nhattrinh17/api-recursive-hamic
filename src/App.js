@@ -49,7 +49,7 @@ function App() {
       idReaechOrComment: "63345fd30a9f82181506cb77",
     };
 
-    const res = await getAllResearch(2);
+    const res = await getAllResearch(1);
     setResult(res);
   };
 
@@ -68,9 +68,10 @@ function App() {
       };
       const idUser = "634051bac555f5944e6e9f6f";
       const idToken = "6344118e335c2eabff36f988";
-      const res = await loginUser(user);
+      const res = await logoutUser();
       setResult(res);
     }
+    testApi();
   }, []);
 
   return (

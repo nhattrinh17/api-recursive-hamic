@@ -1,16 +1,17 @@
+import { getCookie } from "../../utils/libCookie";
 import { put } from "../../utils/request";
 
 /**
  *
  * @param {*} idReseach
  * @param {*} data
- * @param {*} idToken
  * @returns
  * Data ở đây cũng cần sử dụng FormData để tạo và tên của trường đó là image
  */
 
-const updateImageResearch = async (idReseach, data, idToken) => {
+const updateImageResearch = async (idReseach, data) => {
   try {
+    const idToken = getCookie("idToken");
     const res = await put(`research/update/image/${idReseach}`, data, {
       headers: {
         idtoken: idToken,

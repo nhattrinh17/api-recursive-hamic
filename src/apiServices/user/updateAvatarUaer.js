@@ -1,10 +1,10 @@
+import { getCookie } from "../../utils/libCookie";
 import { put } from "../../utils/request";
 
 /**
  * 
  * @param {*} idUser 
  * @param {*} data 
- * @param {*} idToken 
  * @returns 
  * Data ở đây nên tạo ra 1 form data và có name = "avatar"
  * vd:const fromData = new FormData(form Elemnt);
@@ -14,8 +14,9 @@ import { put } from "../../utils/request";
             multiple={true}
           />
  */
-const updateAvatarUser = async (idUser, data, idToken) => {
+const updateAvatarUser = async (idUser, data) => {
   try {
+    const idToken = getCookie("idToken");
     const res = await put(`/user/update/avatar/${idUser}`, data, {
       headers: {
         idtoken: idToken,

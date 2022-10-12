@@ -1,16 +1,15 @@
+import { getCookie } from "../../utils/libCookie";
 import { get } from "../../utils/request";
 
-/**
- * @param {*} idToken
- * Lấy idToken đã lưu khi lofin để truyền vào làm đối số
- */
-const logoutUser = async (idToken) => {
+const logoutUser = async () => {
   try {
+    const idToken = getCookie("idToken");
     const res = await get("/user/logout", {
       headers: {
         idtoken: idToken,
       },
     });
+    document.cookie = "idToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     return res;
   } catch (error) {
     console.log(error.message);

@@ -1,3 +1,4 @@
+import { setCookie } from "../../utils/libCookie";
 import { post } from "../../utils/request";
 
 /**
@@ -12,6 +13,8 @@ import { post } from "../../utils/request";
 const loginUser = async (data) => {
   try {
     const res = await post("/user/login", data);
+    const idToken = res.idToken;
+    setCookie("idToken", idToken, 1);
     return res;
   } catch (error) {
     console.log(error.message);

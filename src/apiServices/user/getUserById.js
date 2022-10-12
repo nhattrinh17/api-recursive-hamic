@@ -1,13 +1,13 @@
+import { getCookie } from "../../utils/libCookie";
 import { get } from "../../utils/request";
 
 /**
  * @param {*} id
  * id người dùng
- * @param {*} idToken
- * Lấy idToken đã lưu khi lofin để truyền vào làm đối số
  */
-const getUserById = async (id, idToken) => {
+const getUserById = async (id) => {
   try {
+    const idToken = getCookie("idToken");
     const res = await get(`/user/${id}`, {
       headers: {
         idtoken: idToken,
