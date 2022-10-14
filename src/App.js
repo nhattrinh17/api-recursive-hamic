@@ -12,36 +12,34 @@ import updateAvatarUser from "./apiServices/user/updateAvatarUaer";
 import deleteUser from "./apiServices/user/deleteUser";
 import addResearch from "./apiServices/research/addResearch";
 import updateResearch from "./apiServices/research/updateResearch";
-import updateImageResearch from "./apiServices/research/updateImageResearch";
+import updateFileResearch from "./apiServices/research/updateFileResearch";
 import getResearchById from "./apiServices/research/getResearchById";
 import addCommentResearch from "./apiServices/research/addComment";
 import getCommentResearch from "./apiServices/research/getCommentResearch";
 import increaseLikeResearchOrComment from "./apiServices/research/likeResearchOrComment";
-import getImageResearchbyId from "./apiServices/research/getImageResearchById";
+import getFileResearchbyId from "./apiServices/research/getFileResearchById";
 import getAllResearch from "./apiServices/research/getAllResearch";
+import setPublicOrPrivate from "./apiServices/research/setPublicOrPrivate";
+import addDepartment from "./apiServices/department/addDepartment";
+import deleteDepartment from "./apiServices/department/deleteDepartment";
+import addExam from "./apiServices/exam/addExam";
 
 function App() {
   const [result, setResult] = useState();
   const formDataRef = useRef();
   const inputElement = useRef();
+  const [file, setFile] = useState();
+  const [fileAvatar, setFileAvatar] = useState();
 
   const submit = async (e) => {
     e.preventDefault();
     const fromData = new FormData(formDataRef.current);
-    // console.log(fromData.get("description"));
-    // console.log(fromData.get("name"));
-    // console.log(fromData.get("image"));
-    // console.log(fromData.get("scored"));
-    // console.log(fromData.get("comment"));
 
-    // const idUser = "6332784bae083badbf26ba53";//admin
-    const idUser = "63331bba38fdf8add0caa7eb"; //test
-    const idToken = "6344118e335c2eabff36f988";
-    const idReseach = "63345fd30a9f82181506cb77";
-    // fromData.append("idArticleOrExam", idReseach);
-    const newComment = {
-      idArticleOrExam: idReseach,
-      comment: "comment 11:25",
+    const idUser = "63497babfd3001fab0dde337";
+    const idReseach = "634989f26cfa12352ead0720";
+
+    const newDepartment = {
+      name: "test 12:51",
     };
 
     const like = {
@@ -49,8 +47,9 @@ function App() {
       idReaechOrComment: "63345fd30a9f82181506cb77",
     };
 
-    const res = await getAllResearch(1);
-    setResult(res);
+    // const res = await addResearch(fromData);
+    const res = await addDepartment(newDepartment);
+    console.log(res);
   };
 
   console.log(result);
@@ -68,25 +67,31 @@ function App() {
       };
       const idUser = "634051bac555f5944e6e9f6f";
       const idToken = "6344118e335c2eabff36f988";
-      const res = await logoutUser();
-      setResult(res);
+      const res = await loginUser(user);
+      console.log(res);
     }
-    testApi();
+    // testApi();
   }, []);
 
   return (
     <div className="App">
       <header className="App-header">
+        <object data={file} type="application/pdf"></object>
+        <img src={fileAvatar} />
+        {fileAvatar}
         <form ref={formDataRef}>
           <p>name</p>
           <input name="name" type={"text"} />
-          <p>decs</p>
-          <input name="description" type={"text"} />
-          <p>scored</p>
-          <input name="scored" type={"number"} />
+          <p>idDepartment</p>
+          <input name="idDepartment" type={"text"} />
+          <p>idSubject</p>
+          <input name="idExamSubject" type={"text"} />
+          <p>file</p>
+          <input type={"file"} name="fileExam" />
+          <p>user</p>
+          <input name="userPost" type={"text"} />
           {/* <input name="comment" type={"text"} /> */}
           {/* <input name="idArticleOrExam" type={"text"} /> */}
-          <input type={"file"} name="image" multiple={true} />
           <button type="submit" onClick={(e) => submit(e)}>
             Cập nhâtj
           </button>

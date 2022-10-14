@@ -8,7 +8,7 @@ import { get } from "../../utils/request";
 
 const getImageResearchbyId = async (id) => {
   try {
-    const res = get(`research/image/${id}`);
+    const res = get(`research/file/${id}`);
     return res;
   } catch (error) {
     console.log(error.message);

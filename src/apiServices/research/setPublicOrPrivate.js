@@ -3,16 +3,17 @@ import { put } from "../../utils/request";
 
 /**
  *
- * @param {*} idReseach
+ * @param {*} idReseach (id bài báo)
  * @param {*} data
  * @returns
- * Data ở đây cũng cần sử dụng FormData để tạo và tên của trường đó là image
+ * data ở đây thì nên tạo 1 object để truyền vào trong data gồm các trường
+ * isPublic
  */
 
-const updateImageResearch = async (idReseach, data) => {
+const setPublicOrPrivate = async (idReseach, data) => {
   try {
     const idToken = getCookie("idToken");
-    const res = await put(`research/update/image/${idReseach}`, data, {
+    const res = await put(`research/update/status/${idReseach}`, data, {
       headers: {
         idtoken: idToken,
       },
@@ -23,4 +24,4 @@ const updateImageResearch = async (idReseach, data) => {
   }
 };
 
-export default updateImageResearch;
+export default setPublicOrPrivate;

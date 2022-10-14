@@ -1,24 +1,23 @@
-import { getCookie } from "../utils/libCookie";
-import { post } from "../utils/request";
+import { getCookie } from "../../utils/libCookie";
+import { post } from "../../utils/request";
 
 /**
- * @param {*} data (Trong data gồm có name, idDepartment, idSubject, flieExam, idUserPost, userPost)
+ * @param {*} data (Trong data gồm có name, idDepartment, idExamSubject, flieExam, idUserPost, userPost)
  * @returns {String}
  * const exam = {
  * name,
  * idDepartment,
- * idSubject,
+ * idExamSubject,
  * flieExam,
- * idUserPost,
  * userPost
  * }
  * Data gửi lên cần có cấu trúc như này và dùng FormData
  * */
 
-const addDepartment = async (data) => {
+const addExam = async (data) => {
   try {
     const idToken = getCookie("idToken");
-    const res = await post("department/add", data, {
+    const res = await post("exam/add", data, {
       headers: {
         idtoken: idToken,
       },
@@ -29,4 +28,4 @@ const addDepartment = async (data) => {
   }
 };
 
-export default addDepartment;
+export default addExam;
