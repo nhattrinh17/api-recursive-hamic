@@ -1,6 +1,5 @@
-import { getCookie } from "../utils/libCookie";
-import { put } from "../utils/request";
-
+import { getCookie } from "../../utils/libCookie";
+import { put } from "../../utils/request";
 /**
  *
  * @param {*} idExam

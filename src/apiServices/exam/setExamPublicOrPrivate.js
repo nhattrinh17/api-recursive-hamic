@@ -1,16 +1,10 @@
 import { getCookie } from "../../utils/libCookie";
 import { put } from "../../utils/request";
 
-/**
- *  @param {*} idSubject (id môn học)
- * @param {*} data
- * @returns
- */
-
-const updateImgSubject = async (idSubject, data) => {
+const setExamPublicOrPrivate = async (idExam, data) => {
   try {
     const idToken = getCookie("idToken");
-    const res = await put(`subject/update/img/${idSubject}`, data, {
+    const res = await put(`/exam/update/status/${idExam}`, data, {
       headers: {
         idtoken: idToken,
       },
@@ -21,4 +15,4 @@ const updateImgSubject = async (idSubject, data) => {
   }
 };
 
-export default updateImgSubject;
+export default setExamPublicOrPrivate;

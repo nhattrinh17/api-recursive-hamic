@@ -20,9 +20,29 @@ import increaseLikeResearchOrComment from "./apiServices/research/likeResearchOr
 import getFileResearchbyId from "./apiServices/research/getFileResearchById";
 import getAllResearch from "./apiServices/research/getAllResearch";
 import setPublicOrPrivate from "./apiServices/research/setPublicOrPrivate";
+
 import addDepartment from "./apiServices/department/addDepartment";
 import deleteDepartment from "./apiServices/department/deleteDepartment";
+import getAllDepartment from "./apiServices/department/getAllDepartment";
+import getDepartmentByNam from "./apiServices/department/getDepartmentByName";
+
+import addSuBject from "./apiServices/subject/addSubject";
+import deleteSubject from "./apiServices/subject/deleteSubject";
+import getAllSubject from "./apiServices/subject/getAllSubject";
+import getSubjectByName from "./apiServices/subject/getSubjectByName";
+import updateSubject from "./apiServices/subject/updateSubject";
+import updateImgSubject from "./apiServices/subject/updateImgSubject";
+
 import addExam from "./apiServices/exam/addExam";
+import countExamDownload from "./apiServices/exam/countExamDownload";
+import getAllExam from "./apiServices/exam/getAllExam";
+import getExamByIdDepartment from "./apiServices/exam/getExamByIdDepartment";
+import getExamByIdSubject from "./apiServices/exam/getExamByIdSubject";
+import getExamBy2Id from "./apiServices/exam/getExamBy2Id";
+import setExamPublicOrPrivate from "./apiServices/exam/setExamPublicOrPrivate";
+import updateExam from "./apiServices/exam/updateExam";
+import updateFileExam from "./apiServices/exam/updateFileExam";
+import deleteExam from "./apiServices/exam/deleteExam";
 
 function App() {
   const [result, setResult] = useState();
@@ -31,30 +51,22 @@ function App() {
   const [file, setFile] = useState();
   const [fileAvatar, setFileAvatar] = useState();
 
-  function toDataURL(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-      var reader = new FileReader();
-      reader.onloadend = function () {
-        callback(reader.result);
-      };
-      reader.readAsDataURL(xhr.response);
-    };
-    xhr.open("GET", url);
-    xhr.responseType = "blob";
-    xhr.send();
-  }
-
   const submit = async (e) => {
     e.preventDefault();
     const fromData = new FormData(formDataRef.current);
 
-    const idUser = "63497babfd3001fab0dde337";
-    const idReseach = "63497e7f99be577ed68feaba";
-    const idDepartment = "634b42a9744b9071d83f0798";
-
     const newDepartment = {
-      name: "test 12:51",
+      name: "Địa phủ",
+    };
+
+    const idDepartment = "6347e4793bb5671a63e9f20f";
+    const idSubject = "6347e4af3bb5671a63e9f21a";
+    const idExam = "634995bb2ca8b5121d2afd93";
+    const status = {
+      isPublic: false,
+    };
+    const subject = {
+      school: "Đại học xây dựng",
     };
 
     const like = {
@@ -62,11 +74,13 @@ function App() {
       idReaechOrComment: "63345fd30a9f82181506cb77",
     };
 
-    // const res = await addResearch(fromData);
-    const res = await getFileResearchbyId(idReseach);
-    setFile(res);
+    const exam = {
+      name: "Đề thi 1",
+    };
 
-    // console.log(res);
+    // const res = await addResearch(fromData);
+    const res = await addDepartment(newDepartment);
+    console.log(res);
   };
 
   console.log(result);
@@ -82,12 +96,12 @@ function App() {
         email,
         password,
       };
-      const idUser = "634051bac555f5944e6e9f6f";
-      const idToken = "6344118e335c2eabff36f988";
+      const idUser = "63497babfd3001fab0dde337";
+      const idToken = "634b3e88f1d9f941c93e5ef7";
       const res = await loginUser(user);
       console.log(res);
     }
-    // testApi();
+    //testApi();
   }, []);
 
   return (
@@ -97,7 +111,7 @@ function App() {
         <iframe src={file}></iframe>
         <img src={fileAvatar} />
         <form ref={formDataRef}>
-          <p>name</p>
+          {/* <p>name</p>
           <input name="name" type={"text"} />
           <p>idDepartment</p>
           <input name="idDepartment" type={"text"} />
@@ -105,10 +119,12 @@ function App() {
           <input name="idExamSubject" type={"text"} />
           <p>file</p>
           <input type={"file"} name="fileExam" />
-          <p>user</p>
-          <input name="userPost" type={"text"} />
+          <p>userPost</p>
+          <input name="userPost" type={"text"} /> */}
           {/* <input name="comment" type={"text"} /> */}
           {/* <input name="idArticleOrExam" type={"text"} /> */}
+          <p>fileExam</p>
+          <input type={"file"} name="fileExam" />
           <button type="submit" onClick={(e) => submit(e)}>
             Cập nhâtj
           </button>

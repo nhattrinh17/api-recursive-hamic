@@ -1,5 +1,5 @@
-import { getCookie } from "../utils/libCookie";
-import { deletee } from "../utils/request";
+import { getCookie } from "../../utils/libCookie";
+import { deletee } from "../../utils/request";
 
 const deleteExam = async (idExam) => {
   try {
