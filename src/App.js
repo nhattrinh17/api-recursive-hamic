@@ -50,7 +50,7 @@ function App() {
     const fromData = new FormData(formDataRef.current);
 
     const idUser = "63497babfd3001fab0dde337";
-    const idReseach = "634989f26cfa12352ead0720";
+    const idReseach = "63497e7f99be577ed68feaba";
     const idDepartment = "634b42a9744b9071d83f0798";
 
     const newDepartment = {
@@ -63,9 +63,8 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    getAvatarUser(idUser).then((dataUrl) => {
-      console.log("RESULT:", dataUrl);
-    });
+    const res = await getFileResearchbyId(idReseach);
+    setFile(res);
 
     // console.log(res);
   };
@@ -95,6 +94,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <object data={file} type="application/pdf"></object> */}
+        <iframe src={file}></iframe>
         <img src={fileAvatar} />
         <form ref={formDataRef}>
           <p>name</p>

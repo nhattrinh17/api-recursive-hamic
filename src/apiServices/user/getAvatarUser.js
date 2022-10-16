@@ -1,24 +1,22 @@
+import b64toBlob from "../../utils/base64toBolb";
 import { getCookie } from "../../utils/libCookie";
 import { get } from "../../utils/request";
+
+function base64encode(data) {
+  return btoa(data.map((v) => String.fromCharCode(v)).join(""));
+}
 
 const getAvatarUser = async (idUser) => {
   try {
     const idToken = getCookie("idToken");
-    return await get(`/user/avatar/${idUser}`, {
+    const res = await get(`/user/avatar/${idUser}`, {
       headers: {
         idtoken: idToken,
       },
-    })
-      .then((response) => response.blob())
-      .then(
-        (blob) =>
-          new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(blob);
-          })
-      );
+    });
+
+    let imageURI = "data:image/jpeg;base64," + base64encode(res.image.data);
+    return imageURI;
   } catch (error) {
     console.log(error);
   }

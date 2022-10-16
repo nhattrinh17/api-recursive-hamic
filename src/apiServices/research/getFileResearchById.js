@@ -1,3 +1,5 @@
+import b64toBlob from "../../utils/base64toBolb";
+import base64encode from "../../utils/buffToBase64";
 import { get } from "../../utils/request";
 
 /**
@@ -8,8 +10,9 @@ import { get } from "../../utils/request";
 
 const getImageResearchbyId = async (id) => {
   try {
-    const res = get(`research/file/${id}`);
-    return res;
+    const res = await get(`research/file/${id}`);
+    const uri = `data:${res.type};base64,` + res.data;
+    return uri;
   } catch (error) {
     console.log(error.message);
   }
