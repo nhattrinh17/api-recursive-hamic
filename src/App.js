@@ -31,12 +31,27 @@ function App() {
   const [file, setFile] = useState();
   const [fileAvatar, setFileAvatar] = useState();
 
+  function toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      };
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+    xhr.send();
+  }
+
   const submit = async (e) => {
     e.preventDefault();
     const fromData = new FormData(formDataRef.current);
 
     const idUser = "63497babfd3001fab0dde337";
     const idReseach = "634989f26cfa12352ead0720";
+    const idDepartment = "634b42a9744b9071d83f0798";
 
     const newDepartment = {
       name: "test 12:51",
@@ -48,8 +63,11 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    const res = await addDepartment(newDepartment);
-    console.log(res);
+    getAvatarUser(idUser).then((dataUrl) => {
+      console.log("RESULT:", dataUrl);
+    });
+
+    // console.log(res);
   };
 
   console.log(result);
@@ -76,9 +94,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <object data={file} type="application/pdf"></object>
+        {/* <object data={file} type="application/pdf"></object> */}
         <img src={fileAvatar} />
-        {fileAvatar}
         <form ref={formDataRef}>
           <p>name</p>
           <input name="name" type={"text"} />
