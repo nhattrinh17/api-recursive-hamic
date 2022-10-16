@@ -20,9 +20,29 @@ import increaseLikeResearchOrComment from "./apiServices/research/likeResearchOr
 import getFileResearchbyId from "./apiServices/research/getFileResearchById";
 import getAllResearch from "./apiServices/research/getAllResearch";
 import setPublicOrPrivate from "./apiServices/research/setPublicOrPrivate";
+
 import addDepartment from "./apiServices/department/addDepartment";
 import deleteDepartment from "./apiServices/department/deleteDepartment";
-import addExam from "./apiServices/exam/addExam";
+import getAllDepartment from "./apiServices/department/getAllDepartment";
+import getDepartmentByNam from "./apiServices/department/getDepartmentByName";
+
+import addSuBject from "./apiServices/subject/addSubject";
+import deleteSubject from "./apiServices/subject/deleteSubject";
+import getAllSubject from "./apiServices/subject/getAllSubject";
+import getSubjectByName from "./apiServices/subject/getSubjectByName";
+// import updateSubject from "./apiServices/subject/updateSubject";
+// import updateImageSubject from "./apiServices/subject/updateImageSubject";
+
+// import addExam from "./apiServices/exam/addExam";
+// import countExamDownload from "./apiServices/exam/countExamDownload";
+// import getAllExam from "./apiServices/exam/getAllExam";
+// import getExamByIdDepartment from "./apiServices/exam/getExamByIdDepartment";
+// import getExamByIdSubject from "./apiServices/exam/getExamByIdSubject";
+// import getExamBy2Id from "./apiServices/exam/getExamBy2Id";
+// import setExamPublicOrPrivate from "./apiServices/exam/setExamPublicOrPrivate";
+// import updateExam from "./apiServices/exam/updateExam";
+// import updateFileExam from "./apiServices/exam/updateFileExam";
+// import deleteExam from "./apiServices/exam/deleteExam";
 
 function App() {
   const [result, setResult] = useState();
@@ -39,8 +59,10 @@ function App() {
     const idReseach = "634989f26cfa12352ead0720";
 
     const newDepartment = {
-      name: "test 12:51",
+      name: "Địa",
     };
+
+    const idDepartment = "634b42a9744b9071d83f0798";
 
     const like = {
       type: "research",
@@ -48,7 +70,7 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    const res = await addDepartment(newDepartment);
+    const res = await deleteDepartment(idDepartment);
     console.log(res);
   };
 
@@ -65,8 +87,8 @@ function App() {
         email,
         password,
       };
-      const idUser = "634051bac555f5944e6e9f6f";
-      const idToken = "6344118e335c2eabff36f988";
+      const idUser = "63497babfd3001fab0dde337";
+      const idToken = "634b3e88f1d9f941c93e5ef7";
       const res = await loginUser(user);
       console.log(res);
     }
