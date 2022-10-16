@@ -30,19 +30,19 @@ import addSuBject from "./apiServices/subject/addSubject";
 import deleteSubject from "./apiServices/subject/deleteSubject";
 import getAllSubject from "./apiServices/subject/getAllSubject";
 import getSubjectByName from "./apiServices/subject/getSubjectByName";
-// import updateSubject from "./apiServices/subject/updateSubject";
-// import updateImageSubject from "./apiServices/subject/updateImageSubject";
+import updateSubject from "./apiServices/subject/updateSubject";
+import updateImgSubject from "./apiServices/subject/updateImgSubject";
 
-// import addExam from "./apiServices/exam/addExam";
-// import countExamDownload from "./apiServices/exam/countExamDownload";
-// import getAllExam from "./apiServices/exam/getAllExam";
-// import getExamByIdDepartment from "./apiServices/exam/getExamByIdDepartment";
-// import getExamByIdSubject from "./apiServices/exam/getExamByIdSubject";
-// import getExamBy2Id from "./apiServices/exam/getExamBy2Id";
-// import setExamPublicOrPrivate from "./apiServices/exam/setExamPublicOrPrivate";
-// import updateExam from "./apiServices/exam/updateExam";
-// import updateFileExam from "./apiServices/exam/updateFileExam";
-// import deleteExam from "./apiServices/exam/deleteExam";
+import addExam from "./apiServices/exam/addExam";
+import countExamDownload from "./apiServices/exam/countExamDownload";
+import getAllExam from "./apiServices/exam/getAllExam";
+import getExamByIdDepartment from "./apiServices/exam/getExamByIdDepartment";
+import getExamByIdSubject from "./apiServices/exam/getExamByIdSubject";
+import getExamBy2Id from "./apiServices/exam/getExamBy2Id";
+import setExamPublicOrPrivate from "./apiServices/exam/setExamPublicOrPrivate";
+import updateExam from "./apiServices/exam/updateExam";
+import updateFileExam from "./apiServices/exam/updateFileExam";
+import deleteExam from "./apiServices/exam/deleteExam";
 
 function App() {
   const [result, setResult] = useState();
@@ -59,18 +59,30 @@ function App() {
     const idReseach = "634989f26cfa12352ead0720";
 
     const newDepartment = {
-      name: "Địa",
+      name: "Địa phủ",
     };
 
-    const idDepartment = "634b42a9744b9071d83f0798";
+    const idDepartment = "6347e4793bb5671a63e9f20f";
+    const idSubject = "6347e4af3bb5671a63e9f21a";
+    const idExam = "634995bb2ca8b5121d2afd93";
+    const status = {
+      isPublic: false,
+    };
+    const subject = {
+      school: "Đại học xây dựng",
+    };
 
     const like = {
       type: "research",
       idReaechOrComment: "63345fd30a9f82181506cb77",
     };
 
+    const exam = {
+      name: "Đề thi 1",
+    };
+
     // const res = await addResearch(fromData);
-    const res = await deleteDepartment(idDepartment);
+    const res = await updateFileExam(idExam, fromData);
     console.log(res);
   };
 
@@ -92,7 +104,7 @@ function App() {
       const res = await loginUser(user);
       console.log(res);
     }
-    // testApi();
+    //testApi();
   }, []);
 
   return (
@@ -102,7 +114,7 @@ function App() {
         <img src={fileAvatar} />
         {fileAvatar}
         <form ref={formDataRef}>
-          <p>name</p>
+          {/* <p>name</p>
           <input name="name" type={"text"} />
           <p>idDepartment</p>
           <input name="idDepartment" type={"text"} />
@@ -110,10 +122,12 @@ function App() {
           <input name="idExamSubject" type={"text"} />
           <p>file</p>
           <input type={"file"} name="fileExam" />
-          <p>user</p>
-          <input name="userPost" type={"text"} />
+          <p>userPost</p>
+          <input name="userPost" type={"text"} /> */}
           {/* <input name="comment" type={"text"} /> */}
           {/* <input name="idArticleOrExam" type={"text"} /> */}
+          <p>fileExam</p>
+          <input type={"file"} name="fileExam" />
           <button type="submit" onClick={(e) => submit(e)}>
             Cập nhâtj
           </button>
