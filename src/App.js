@@ -32,6 +32,7 @@ import getAllSubject from "./apiServices/subject/getAllSubject";
 import getSubjectByName from "./apiServices/subject/getSubjectByName";
 import updateSubject from "./apiServices/subject/updateSubject";
 import updateImgSubject from "./apiServices/subject/updateImgSubject";
+import getImgSchool from "./apiServices/subject/getImgSchool";
 
 import addExam from "./apiServices/exam/addExam";
 import countExamDownload from "./apiServices/exam/countExamDownload";
@@ -43,6 +44,8 @@ import setExamPublicOrPrivate from "./apiServices/exam/setExamPublicOrPrivate";
 import updateExam from "./apiServices/exam/updateExam";
 import updateFileExam from "./apiServices/exam/updateFileExam";
 import deleteExam from "./apiServices/exam/deleteExam";
+import getFileExam from "./apiServices/exam/getFileExam";
+import { get } from "./utils/request";
 
 function App() {
   const [result, setResult] = useState();
@@ -61,7 +64,7 @@ function App() {
 
     const idResearch = "634989f26cfa12352ead0720";
     const idDepartment = "6347e4793bb5671a63e9f20f";
-    const idSubject = "6347e4af3bb5671a63e9f21a";
+    const idSubject = "634933cc9c531a5bad57a89a";
     const idExam = "634995bb2ca8b5121d2afd93";
     const status = {
       isPublic: false,
@@ -80,9 +83,8 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    // const res = await getFileResearchbyId(idResearch);
-    // setFile(res);
-    console.log(fromData.get("cars"));
+    const res = await addDepartment(newDepartment);
+    console.log(res);
   };
 
   console.log(result);
