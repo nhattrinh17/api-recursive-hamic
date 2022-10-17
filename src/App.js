@@ -45,6 +45,7 @@ import updateExam from "./apiServices/exam/updateExam";
 import updateFileExam from "./apiServices/exam/updateFileExam";
 import deleteExam from "./apiServices/exam/deleteExam";
 import getFileExam from "./apiServices/exam/getFileExam";
+import { get } from "./utils/request";
 
 function App() {
   const [result, setResult] = useState();
