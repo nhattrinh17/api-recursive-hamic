@@ -63,7 +63,7 @@ function App() {
     };
 
     const idDepartment = "6347e4793bb5671a63e9f20f";
-    const idSubject = "6347e4af3bb5671a63e9f21a";
+    const idSubject = "634933cc9c531a5bad57a89a";
     const idExam = "634995bb2ca8b5121d2afd93";
     const status = {
       isPublic: false,
@@ -82,7 +82,7 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    const res = await getImgSchool(idSubject);
+    const res = await getFileExam(idExam);
     setFile(res);
     console.log(res);
   };

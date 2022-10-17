@@ -14,9 +14,8 @@ const getAvatarUser = async (idUser) => {
         idtoken: idToken,
       },
     });
-
-    let imageURI = "data:image/jpeg;base64," + base64encode(res.image.data);
-    return imageURI;
+    const uri = `data:${res.type};base64,` + res.data;
+    return uri;
   } catch (error) {
     console.log(error);
   }
