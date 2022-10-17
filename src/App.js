@@ -32,6 +32,7 @@ import getAllSubject from "./apiServices/subject/getAllSubject";
 import getSubjectByName from "./apiServices/subject/getSubjectByName";
 import updateSubject from "./apiServices/subject/updateSubject";
 import updateImgSubject from "./apiServices/subject/updateImgSubject";
+import getImgSchool from "./apiServices/subject/getImgSchool";
 
 import addExam from "./apiServices/exam/addExam";
 import countExamDownload from "./apiServices/exam/countExamDownload";
@@ -43,6 +44,7 @@ import setExamPublicOrPrivate from "./apiServices/exam/setExamPublicOrPrivate";
 import updateExam from "./apiServices/exam/updateExam";
 import updateFileExam from "./apiServices/exam/updateFileExam";
 import deleteExam from "./apiServices/exam/deleteExam";
+import getFileExam from "./apiServices/exam/getFileExam";
 
 function App() {
   const [result, setResult] = useState();
@@ -79,7 +81,8 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    const res = await addDepartment(newDepartment);
+    const res = await getImgSchool(idSubject);
+    setFile(res);
     console.log(res);
   };
 
