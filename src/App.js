@@ -59,6 +59,7 @@ function App() {
       name: "Địa phủ",
     };
 
+    const idResearch = "634989f26cfa12352ead0720";
     const idDepartment = "6347e4793bb5671a63e9f20f";
     const idSubject = "6347e4af3bb5671a63e9f21a";
     const idExam = "634995bb2ca8b5121d2afd93";
@@ -79,8 +80,9 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    const res = await addDepartment(newDepartment);
-    console.log(res);
+    // const res = await getFileResearchbyId(idResearch);
+    // setFile(res);
+    console.log(fromData.get("cars"));
   };
 
   console.log(result);
@@ -125,6 +127,14 @@ function App() {
           {/* <input name="idArticleOrExam" type={"text"} /> */}
           <p>fileExam</p>
           <input type={"file"} name="fileExam" />
+          <label for="cars">Choose a car:</label>
+
+          <select name="cars" id="cars" multiple>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
           <button type="submit" onClick={(e) => submit(e)}>
             Cập nhâtj
           </button>
