@@ -45,8 +45,8 @@ import updateExam from "./apiServices/exam/updateExam";
 import updateFileExam from "./apiServices/exam/updateFileExam";
 import deleteExam from "./apiServices/exam/deleteExam";
 import getFileExam from "./apiServices/exam/getFileExam";
-import { get } from "./utils/request";
 import getAllResearchPrivate from "./apiServices/research/getAllResearchPrivate";
+import getResearchByName from "./apiServices/research/getResearchByName";
 
 function App() {
   const [result, setResult] = useState();
@@ -85,7 +85,7 @@ function App() {
 
     // const res = await addResearch(fromData);
     // const res = await setPublicOrPrivate(idResearch, { isPublic: true });
-    const res = await getAllResearchPrivate();
+    const res = await getResearchByName("demo");
     console.log(res);
     console.log(res);
   };
