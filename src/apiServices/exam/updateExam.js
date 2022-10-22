@@ -1,5 +1,5 @@
 import { getCookie } from "../../utils/libCookie";
-import { put } from "../../utils/request";
+import { put } from "../../utils/request.js";
 /**
  *
  * @param {*} idExam

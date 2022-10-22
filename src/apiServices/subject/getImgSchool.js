@@ -1,4 +1,4 @@
-import { get } from "../../utils/request";
+import { get } from "../../utils/request.js";
 import b64toBlob from "../../utils/base64toBolb";
 
 const getImgSchool = async (idSubject) => {

@@ -46,6 +46,7 @@ import updateFileExam from "./apiServices/exam/updateFileExam";
 import deleteExam from "./apiServices/exam/deleteExam";
 import getFileExam from "./apiServices/exam/getFileExam";
 import { get } from "./utils/request";
+import getAllResearchPrivate from "./apiServices/research/getAllResearchPrivate";
 
 function App() {
   const [result, setResult] = useState();
@@ -62,7 +63,7 @@ function App() {
       name: "Địa phủ",
     };
 
-    const idResearch = "634989f26cfa12352ead0720";
+    const idResearch = "635416c4787282496eeec7b5";
     const idDepartment = "6347e4793bb5671a63e9f20f";
     const idSubject = "634933cc9c531a5bad57a89a";
     const idExam = "634995bb2ca8b5121d2afd93";
@@ -83,7 +84,9 @@ function App() {
     };
 
     // const res = await addResearch(fromData);
-    const res = await addDepartment(newDepartment);
+    // const res = await setPublicOrPrivate(idResearch, { isPublic: true });
+    const res = await getAllResearchPrivate();
+    console.log(res);
     console.log(res);
   };
 
@@ -105,7 +108,7 @@ function App() {
       const res = await loginUser(user);
       console.log(res);
     }
-    //testApi();
+    // testApi();
   }, []);
 
   return (

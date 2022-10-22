@@ -1,4 +1,4 @@
-import { post } from "../../utils/request";
+import { post } from "../../utils/request.js";
 
 /**
  * @param {*} data (Trong data gồm có fristName, lastName, email, password)

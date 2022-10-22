@@ -1,4 +1,4 @@
-import { get } from "../../utils/request";
+import { get } from "../../utils/request.js";
 /**
  * @param {*} idSubject (Mã chủ đề)
  * @param {*} page (Trang)

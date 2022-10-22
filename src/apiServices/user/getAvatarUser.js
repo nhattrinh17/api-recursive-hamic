@@ -1,6 +1,6 @@
 import b64toBlob from "../../utils/base64toBolb";
 import { getCookie } from "../../utils/libCookie";
-import { get } from "../../utils/request";
+import { get } from "../../utils/request.js";
 
 function base64encode(data) {
   return btoa(data.map((v) => String.fromCharCode(v)).join(""));

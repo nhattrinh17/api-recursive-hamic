@@ -1,19 +1,23 @@
-import { getCookie } from "../../utils/libCookie";
+import { getCookie } from "../../utils/libCookie.js";
 import { get } from "../../utils/request.js";
 
-const logoutUser = async () => {
+/**
+ *
+ *
+ */
+
+const getAllResearchPrivate = async () => {
   try {
     const idToken = getCookie("idToken");
-    const res = await get("/user/logout", {
+    const res = await get(`research/private`, {
       headers: {
         idtoken: idToken,
       },
     });
-    document.cookie = "idToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     return res;
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export default logoutUser;
+export default getAllResearchPrivate;

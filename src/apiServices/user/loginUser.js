@@ -1,5 +1,5 @@
 import { setCookie } from "../../utils/libCookie";
-import { post } from "../../utils/request";
+import { post } from "../../utils/request.js";
 
 /**
  * @param {*} data (Trong data gồm có email, password)

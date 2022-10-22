@@ -1,5 +1,5 @@
 import { getCookie } from "../../utils/libCookie";
-import { get } from "../../utils/request";
+import { get } from "../../utils/request.js";
 
 /**
  * @param {*} id
